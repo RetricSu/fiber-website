@@ -3,8 +3,8 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"fmt": "biome format --write",
-		"lint": "biome lint --write",
+		"fmt": "biome format --write src/",
+		"lint": "biome lint --write src/",
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
