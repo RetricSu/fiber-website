@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Footer from "./Footer.astro";
 import Navbar from "./Navbar.astro";
 ---
 
@@ -12,9 +13,10 @@ import Navbar from "./Navbar.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Fiber Network</title>
 	</head>
-	<body>
+	<body class="text-text-primary">
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>
 

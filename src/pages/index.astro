@@ -1,12 +1,29 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Banner from "../components/Banner.astro";
+import ScrollList from "../components/ScrollList.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Features from "../components/Features.astro";
+import Compare from "../components/Compare.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const scrollingItems = [
+	"Faster",
+	"Cheaper",
+	"P2P",
+	"Multi-Asset Support",
+	"Interoperability",
+	"Faster",
+	"Cheaper",
+	"P2P",
+	"Multi-Asset",
+];
 ---
 
 <Layout>
-	<Banner />
+  <Banner />
+  <ScrollList items={scrollingItems} />
+  <HowItWorks />
+  <ScrollList items={scrollingItems} />
+  <Features />
+  <Compare />
 </Layout>
