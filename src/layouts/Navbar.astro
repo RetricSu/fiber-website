@@ -6,6 +6,25 @@ const navLinks = [
 	{ text: "Milestones", href: "#milestones", id: "milestones" },
 	{ text: "Hybrid Lightning Network", href: "#network", id: "network" },
 ];
+
+const documentMenu = [
+	{
+		text: "Light Paper",
+		href: "https://github.com/nervosnetwork/fiber/blob/main/docs/light-paper.md",
+	},
+	{
+		text: "RPC Documentation",
+		href: "https://github.com/nervosnetwork/fiber/blob/main/src/rpc/README.md",
+	},
+	{
+		text: "P2P Message Protocol",
+		href: "https://github.com/nervosnetwork/fiber/blob/main/docs/specs/p2p-message.md",
+	},
+	{
+		text: "Invoice Protocol",
+		href: "https://github.com/nerosnetwork/fiber/blob/main/docs/specs/payment-invoice.md",
+	},
+];
 ---
 
 <nav class="bg-[#E6D3FF] flex items-center justify-between py-4 px-20">
@@ -16,7 +35,7 @@ const navLinks = [
     {
       navLinks.map((link) =>
         link.id === "documentation" ? (
-          <li>
+          <li class="relative">
             <a
               href={link.href}
               class={`nav-link px-4 py-2 rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-200 border-1 border-black`}
@@ -25,11 +44,36 @@ const navLinks = [
             >
               {link.text}
               <span class="h-4 inline-block items-baseline">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.12486 13.3212L3.92871 5.07115H14.321L9.12486 13.3212Z" fill="currentColor"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.12486 13.3212L3.92871 5.07115H14.321L9.12486 13.3212Z"
+                    fill="currentColor"
+                  />
                 </svg>
               </span>
             </a>
+            <div class="absolute hidden">
+              <ul class="w-[285px] bg-yellow border-1 border-border-black rounded-lg shadow-lg py-1">
+                {documentMenu.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="block px-4 py-2 text-gray-800 hover:bg-blue-dark hover:text-white"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </li>
         ) : (
           <li>
@@ -75,6 +119,12 @@ const navLinks = [
 
         // Add 'selected' class to the clicked link
         link.classList.add("selected");
+
+        if (link.id === "nav-link-documentation") {
+          // Toggle the dropdown menu
+          const dropdown = link.nextElementSibling;
+          dropdown?.classList.toggle("hidden");
+        }
       });
     });
   });
