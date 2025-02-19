@@ -1,0 +1,61 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+
+const timelineData = [
+	{
+		quarter: "2024 Q3",
+		details: [
+			"Released POC1, Channels Management, On-Chain Contracts, Cross-Chain Demo for Lightning",
+		],
+	},
+	{
+		quarter: "2024 Q4",
+		details: [
+			"Released POC2, Path Finding, Payment Routing",
+			"Released the first General Availability (GA) version of the Fiber node implementation, completed contract audit, and planned future upgrades.",
+		],
+	},
+];
+
+const futureTimelineData = [
+	{
+		quarter: "2025 Q1",
+		details: [
+			"Mainnet Contract Deployment",
+			"Release the first stable version of Fiber node implementation",
+		],
+	},
+	{
+		quarter: "2025 Q2",
+		details: [
+			"More features of payment: Payment Offers and Multi-path Payment",
+			"Support multi-hop of cross-chain transfer",
+		],
+	},
+	{
+		quarter: "2025 Q3",
+		details: ["Upgrade contract to support PTLC"],
+	},
+];
+---
+
+<div class="relative px-20">
+  <div>
+    <div class="absolute ml-4 z-0 w-[1px] bg-black h-full"></div>
+    <ul>
+      {timelineData.map((item) => <TimelineItem item={item} />)}
+    </ul>
+  </div>
+</div>
+
+<div class="relative px-20">
+  <div>
+    <div
+      class="absolute ml-4 z-0 w-[1px] border-r-1 border-black border-dashed h-full"
+    >
+    </div>
+    <ul>
+      {futureTimelineData.map((item) => <TimelineItem item={item} />)}
+    </ul>
+  </div>
+</div>

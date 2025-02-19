@@ -1,0 +1,49 @@
+---
+interface Props {
+	item: {
+		quarter: string;
+		details: string[];
+	};
+}
+
+const { item } = Astro.props;
+---
+
+<li class="pb-16">
+  <div class="flex gap-10 items-center align-middle">
+    <div
+      class="z-50 w-8 h-8 rounded-full flex justify-center items-center align-middle border-2 border-border-black"
+    >
+      <div
+        class={`w-4 h-4 rounded-full border-2 border-border-black ${
+          item.quarter.includes("2024")
+            ? "bg-purple-dark"
+            : item.quarter.includes("2025 Q1")
+              ? "bg-yellow "
+              : ""
+        }`}
+      >
+      </div>
+    </div>
+
+    <div class="flex-grow mb-4 flex items-center">
+      <div
+        class={`p-5 rounded-3xl w-full md:w-[670px] border-1 border-border-black ${
+          item.quarter.includes("2024")
+            ? "bg-purple-dark text-yellow"
+            : item.quarter.includes("2025 Q1")
+              ? "bg-yellow text-blue-dark"
+              : "text-text-primary"
+        }`}
+      >
+        <h3>{item.quarter}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="ml-16">
+    <ul class="list-disc pl-5">
+      {item.details.map((detail) => <li class="text-body1 mb-1">{detail}</li>)}
+    </ul>
+  </div>
+</li>
