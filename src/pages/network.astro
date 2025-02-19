@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="py-20 px-20">
+    <div
+      class="bg-cyan rounded-xl p-8 mx-auto border-1 border-border-black text-center mb-6"
+    >
+      <h1>Hybrid Lightning Network</h1>
+    </div>
+
+    <div
+      class="bg-purple-dark p-[20px] rounded-xl border-1 border-border-black flex justify-center text-white text-center"
+    >
+      <h3>
+        Combining Lightning Network and Fiber Network to enable instant, secure,
+        cross-chain payments and asset transfers.
+      </h3>
+    </div>
+
+    <div class="my-4 grid grid-cols-1 lg:grid-cols-3 gap-2">
+      <div
+        class={`overflow-hidden rounded-xl flex flex-col gap-4 justify-center align-middle items-center bg-yellow border-1 border-border-black`}
+      >
+        <div
+          class="px-5 py-10 flex flex-col gap-4 justify-center align-middle items-center"
+        >
+          <h3 class="text-blue-dark">Stablecoin Support</h3>
+          <div class="text-body1">
+            <a
+              href="http://"
+              class="text-blue-dark underline"
+              target="_blank"
+              rel="noopener noreferrer">RGB++ Stablecoins</a
+            > can seamlessly enter the Hybrid Lightning Network.
+          </div>
+        </div>
+
+        <div
+          class="w-full bg-yellow-light rounded-b-2xl flex justify-center p-4"
+        >
+          <img src="/imgs/hybrid-network/rgbpp.png" alt="" />
+        </div>
+      </div>
+
+      <div
+        class={`overflow-hidden rounded-xl flex flex-col gap-4 justify-center align-middle items-center bg-yellow border-1 border-border-black`}
+      >
+        <div
+          class="px-5 py-10 flex flex-col gap-4 justify-center align-middle items-center"
+        >
+          <h3 class="text-blue-dark">Cross-Network Atomic Swaps</h3>
+          <div class="text-body1">
+            Edge nodes enable secure, instant exchanges across Lightning and
+            Fiber networks.
+          </div>
+        </div>
+
+        <div
+          class="w-full bg-yellow-light rounded-b-2xl flex justify-center p-4"
+        >
+          <img src="/imgs/hybrid-network/hub-node.png" alt="" />
+        </div>
+      </div>
+
+      <div
+        class={`overflow-hidden rounded-xl flex flex-col gap-4 justify-center align-middle items-center bg-yellow border-1 border-border-black`}
+      >
+        <div
+          class="px-5 py-10 flex flex-col gap-4 justify-center align-middle items-center"
+        >
+          <h3 class="text-blue-dark">Network Enhancement</h3>
+          <div class="text-body1">
+            The combined infrastructure improves network connectivity and boosts
+            overall liquidity.
+          </div>
+        </div>
+
+        <div
+          class="w-full bg-yellow-light rounded-b-2xl flex justify-center p-4"
+        >
+          <img src="/imgs/hybrid-network/boost.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
