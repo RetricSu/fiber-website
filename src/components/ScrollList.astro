@@ -1,23 +1,30 @@
 ---
 interface Props {
+	isPrimary?: boolean;
 	items: string[];
 }
 
-const { items } = Astro.props;
+const { isPrimary = true, items } = Astro.props;
 
 const repeatedItems = [...items, ...items]; // Duplicate items for seamless looping
 ---
 
-<div class="overflow-hidden relative border border-border-black bg-yellow-light">
+<div
+  class={`overflow-hidden relative border border-border-black ${isPrimary ? "bg-yellow-light" : "bg-blue-light"}`}
+>
   <div
     class="animate-scrolling whitespace-nowrap w-max transition-transform duration-20000 py-2"
   >
-    {repeatedItems.map((item, index) => (
-      <span class="inline-block px-4 py-2 text-lg font-semibold">
-        {item}
-        {index !== repeatedItems.length - 1 && <span class="mx-2 text-2xl">✦</span>}
-      </span>
-    ))}
+    {
+      repeatedItems.map((item, index) => (
+        <span class="inline-block px-4 py-2 text-lg font-semibold">
+          {item}
+          {index !== repeatedItems.length - 1 && (
+            <span class="mx-2 text-2xl">✦</span>
+          )}
+        </span>
+      ))
+    }
   </div>
 </div>
 
@@ -34,7 +41,9 @@ const repeatedItems = [...items, ...items]; // Duplicate items for seamless loop
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-50%)); /* Scroll half the duplicated content */
+      transform: translateX(
+        calc(-50%)
+      ); /* Scroll half the duplicated content */
     }
   }
 </style>

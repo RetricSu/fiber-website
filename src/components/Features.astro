@@ -1,38 +1,46 @@
+---
+import FeatureCard from "./FeatureCard.astro";
+
+const features = [
+	{
+		iconSrc: "/icons/features/scalability.svg",
+		title: "Scalability",
+		description:
+			"Through off-chain payment channels and multi-hop routing, Fiber Network can achieve high-throughput transaction processing, meeting the needs of large-scale users.",
+	},
+	{
+		iconSrc: "/icons/features/low-cost.svg",
+		title: "Low Cost",
+		description:
+			"By reducing the frequency of on-chain transactions, Fiber Network lowers transaction fees, making micropayments feasible and efficient.",
+	},
+	{
+		iconSrc: "/icons/features/fast.svg",
+		title: "Fast",
+		description:
+			"The instant confirmation of off-chain transactions provides a split second payment confirmation experience suitable for various instant payment scenarios.",
+	},
+	{
+		iconSrc: "/icons/features/multi-assets.svg",
+		title: "Multi-Asset Support",
+		description:
+			"Fiber Network supports payments in a variety of digital assets, offering users a broader range of payment options.",
+	},
+	{
+		iconSrc: "/icons/features/inter-op.svg",
+		title: "Interoperability",
+		description:
+			"Fiber Network supports interoperability with the Bitcoin Lightning Network, providing support for cross-chain payments and asset transfers.",
+	},
+];
+---
+
 {/* Features Grid */}
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-8 p-20">
+<div class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-1 gap-4 my-8 p-20">
   <div
-    class="p-5 h-[303px] rounded-xl flex justify-start align-middle items-center bg-blue-dark hover:bg-yellow text-white hover:text-text-primary"
+    class={`p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start bg-blue-dark text-white`}
   >
     <h2>Highlighted<br /> Features</h2>
   </div>
-  <div
-    class="p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start bg-yellow hover:bg-yellow-dark"
-  >
-    <img src="/icons/features/scalability.svg" alt="" />
-    <h3>Scalability</h3>
-  </div>
-  <div
-    class="p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start bg-yellow hover:bg-yellow-dark"
-  >
-    <img src="/icons/features/low-cost.svg" alt="" />
-    <h3>Low Cost</h3>
-  </div>
-  <div
-    class="p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start bg-yellow hover:bg-yellow-dark"
-  >
-    <img src="/icons/features/fast.svg" alt="" />
-    <h3>Fast</h3>
-  </div>
-  <div
-    class="p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start bg-yellow hover:bg-yellow-dark"
-  >
-    <img src="/icons/features/multi-assets.svg" alt="" />
-    <h3>Multi-Asset Support</h3>
-  </div>
-  <div
-    class="p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start bg-yellow hover:bg-yellow-dark"
-  >
-    <img src="/icons/features/inter-op.svg" alt="" />
-    <h3>Interoperability</h3>
-  </div>
+  {features.map((feature) => <FeatureCard {...feature} />)}
 </div>
