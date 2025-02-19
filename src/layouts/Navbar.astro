@@ -33,7 +33,7 @@ const currentPath = Astro.url.pathname;
   <a href="/" class="text-xl font-bold">
     <img src="/logo/black.svg" alt="Logo" class="h-10" />
   </a>
-  <ul class="flex space-x-4">
+  <ul class="hidden lg:flex space-x-4">
     {
       navLinks.map((link) => {
         const isActive = currentPath === link.href;
@@ -93,6 +93,10 @@ const currentPath = Astro.url.pathname;
       })
     }
   </ul>
+
+  <div class="flex lg:hidden bg-black p-2 rounded-xl">
+    <img src="/icons/menu.svg" alt="" />
+  </div>
 </nav>
 
 <style>
