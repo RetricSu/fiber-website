@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-	{ text: "About", href: "#about", id: "about" },
+	{ text: "About", href: "/", id: "about" },
 	{ text: "Documentation", href: "#documentation", id: "documentation" },
-	{ text: "Build on Fiber", href: "#fiber", id: "fiber" },
-	{ text: "Milestones", href: "#milestones", id: "milestones" },
-	{ text: "Hybrid Lightning Network", href: "#network", id: "network" },
+	{ text: "Build on Fiber", href: "/build", id: "fiber" },
+	{ text: "Milestones", href: "/milestones", id: "milestones" },
+	{ text: "Hybrid Lightning Network", href: "/network", id: "network" },
 ];
 
 const documentMenu = [
@@ -112,7 +112,7 @@ const documentMenu = [
 
     navLinks.forEach((link) => {
       link.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent default link behavior
+        //event.preventDefault(); // Prevent default link behavior
 
         // Remove 'selected' class from all links
         navLinks.forEach((l) => l.classList.remove("selected"));
@@ -121,6 +121,7 @@ const documentMenu = [
         link.classList.add("selected");
 
         if (link.id === "nav-link-documentation") {
+          event.preventDefault(); // Prevent default link behavior
           // Toggle the dropdown menu
           const dropdown = link.nextElementSibling;
           dropdown?.classList.toggle("hidden");

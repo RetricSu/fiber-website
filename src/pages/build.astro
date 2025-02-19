@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ScrollList from "../components/ScrollList.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Features from "../components/Features.astro";
+import Compare from "../components/Compare.astro";
+import CaseCard from "../components/CaseCard.astro";
+
+const scrollingItems = [
+	"Faster",
+	"Cheaper",
+	"P2P",
+	"Multi-Asset Support",
+	"Interoperability",
+	"Faster",
+	"Cheaper",
+	"P2P",
+	"Multi-Asset",
+];
+
+const buildCaseList = [
+	{
+		title: "IoT Payments",
+		description:
+			"Enable automated micro-payments between connected devices in IoT ecosystems.",
+		icon: "/icons/iot.svg",
+	},
+
+	{
+		title: "Creator Economy",
+		description:
+			"Streamline tipping and donations for content creators with instant monetization.",
+		icon: "/icons/creator.svg",
+	},
+	{
+		title: "Gaming",
+		description:
+			"Enable fluid in-game purchases and secure asset transfers in decentralized gaming environments.",
+		icon: "/icons/game.svg",
+	},
+	{
+		title: "Cross-Chain Atomic Swaps",
+		description:
+			"Enables decentralized, trustless swaps between Bitcoin and other cryptocurrencies.",
+		icon: "/icons/swap.svg",
+	},
+	{
+		title: "Cross-Border Payment",
+		description:
+			"Facilitate faster and cheaper international transfers without traditional intermediaries.",
+		icon: "/icons/cross-border.svg",
+	},
+];
+---
+
+<Layout>
+  <div class="bg-lavender-100 py-20 px-20">
+    <div
+      class="bg-cyan rounded-xl p-8 mx-auto border-1 border-border-black text-center mb-6"
+    >
+      <h1>Build on Fiber</h1>
+    </div>
+
+    <div
+      class="bg-purple-dark p-[20px] rounded-xl border-1 border-border-black flex justify-center text-white text-center"
+    >
+      <h3>
+        Empower your applications with instant micropayments, seamless
+        transactions, and cross-chain capabilities.
+      </h3>
+    </div>
+
+    <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div
+        class={`px-5 py-10 rounded-xl flex flex-col gap-4 justify-center align-middle items-start bg-yellow border-1 border-border-black`}
+      >
+        <div class="flex flex-col gap-2">
+          <div class="w-20 bg-blue-dark rounded flex justify-center px-2 py-4">
+            <img class="w-12" src="/icons/commerce.svg" alt="" />
+          </div>
+          <h3 class="text-blue-dark">E-Commerce</h3>
+        </div>
+        <div class="text-body1">
+          Enable instant settlements with minimal fees, transforming online
+          retail payment processing.
+        </div>
+        <a
+          target="_blank"
+          href="https://fiber-pay-demo.vercel.app/invoices/shopify/5708053708977"
+          class="bg-blue-dark text-white px-2 py-4 rounded-3xl w-full flex justify-center items-center align-middle gap-2 cursor-pointer"
+        >
+          <h4>Demo</h4>
+          <img class="w-6" src="/icons/link.svg" alt="" />
+        </a>
+      </div>
+
+      <div
+        class={`px-5 py-10 rounded-xl flex flex-col gap-4 justify-center align-middle items-start bg-cyan border-1 border-border-black`}
+      >
+        <div class="flex flex-col gap-2">
+          <div
+            class="w-20 bg-purple-dark rounded flex justify-center px-2 py-4"
+          >
+            <img class="w-12" src="/icons/ai.svg" alt="" />
+          </div>
+          <h3 class="text-purple-dark">Next-Generation AI Agent</h3>
+        </div>
+        <div class="text-body1">
+          Power AI agents with seamless micropayments for pay-as-you-go access
+          to data and services.
+        </div>
+        <a
+          target="_blank"
+          href="https://fiber-pay-demo.vercel.app/invoices/shopify/5708053708977"
+          class="bg-purple-dark text-white px-2 py-4 rounded-3xl w-full flex justify-center items-center align-middle gap-2 cursor-pointer"
+        >
+          <h4>Demo</h4>
+          <img class="w-6" src="/icons/link.svg" alt="" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <ScrollList items={scrollingItems} isPrimary={false} />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8 p-20">
+    {
+      buildCaseList.map((item) => (
+        <CaseCard
+          title={item.title}
+          description={item.description}
+          icon={item.icon}
+        />
+      ))
+    }
+    <div
+      class={`p-5 h-[303px] rounded-xl flex flex-col justify-center align-middle items-start gap-10 bg-purple border-1 border-border-black`}
+    >
+      <>
+        <h3>What Will You Build?</h3>
+      </>
+    </div>
+  </div>
+
+  
+</Layout>
