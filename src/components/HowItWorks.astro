@@ -1,3 +1,7 @@
+---
+
+---
+
 <div class="rounded-xl py-20 px-20 mb-8">
   <div>
     <h2
@@ -7,17 +11,61 @@
     </h2>
   </div>
   <div class="relative bg-yellow-light rounded-lg p-4 border-1 border-black">
-	<img src="/imgs/step1.png" alt="">
+    <img id="stepImage" src="/imgs/step1.png" alt="Step Image" />
   </div>
-  <div class="flex justify-between mt-4 text-white">
-    <button class="flex items-center gap-2 bg-black rounded-xl p-[20px]">
-      <img src="/icons/left.svg" alt="" />
+  <div class="flex justify-between mt-4 text-white gap-1">
+    <button
+      id="prevButton"
+      class="flex items-center gap-2 bg-black rounded-xl p-[20px] cursor-pointer"
+    >
+      <img src="/icons/left.svg" alt="Previous" />
       <h3>Previous</h3>
     </button>
-    <div class="text-sm bg-purple-dark flex p-[20px] rounded-xl border-1 border-black"><h3>1/4 Off-Chain Payment Channels</h3>
+    <div
+      class="flex-grow text-sm bg-purple-dark flex justify-center p-[20px] rounded-xl border-1 border-black"
+    >
+      <h3>1/4 Off-Chain Payment Channels</h3>
     </div>
-    <button class="flex items-center gap-2 bg-black rounded-xl p-[20px]">
-      <h3>Next</h3><img src="/icons/right.svg" alt="" />
+    <button
+      id="nextButton"
+      class="flex items-center gap-2 bg-black rounded-xl p-[20px] cursor-pointer"
+    >
+      <h3>Next</h3>
+      <img src="/icons/right.svg" alt="Next" />
     </button>
   </div>
 </div>
+
+<script type="module">
+  const steps = [
+    { src: "/imgs/step1.png", title: "Off-Chain Payment Channels" },
+    { src: "/imgs/step2.png", title: "On-Chain Contracts (HTLC)" },
+    { src: "/imgs/step3.png", title: "Multi-Hop Routing" },
+    { src: "/imgs/step4.png", title: "Watchtower Service" },
+  ];
+  let currentStep = 0;
+
+  const prevButton = document.getElementById("prevButton");
+  const nextButton = document.getElementById("nextButton");
+  const stepImage = document.getElementById("stepImage");
+  const stepText = document.querySelector(".flex-grow h3");
+
+  function updateStep() {
+    stepImage.src = steps[currentStep].src;
+    stepText.textContent = `${currentStep + 1}/${steps.length} ${steps[currentStep].title}`;
+  }
+
+  prevButton.addEventListener("click", () => {
+    if (currentStep > 0) {
+      currentStep--;
+      updateStep();
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      updateStep();
+    }
+  });
+</script>
