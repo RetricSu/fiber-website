@@ -1,6 +1,12 @@
-<footer class="bg-black text-white py-12 rounded-t-xl">
+---
+
+---
+
+<footer class="bg-black text-white py-12 rounded-t-xl relative">
+  <!-- 展开的 Footer -->
   <div
-    class="flex flex-col align-middle items-center gap-6 px-4 text-center justify-center"
+    id="expanded-footer"
+    class="flex flex-col align-middle items-center gap-6 px-4 text-center justify-center transition-all duration-300 ease-in-out"
   >
     <div class="w-20">
       <img src="/favicon.svg" alt="" />
@@ -17,20 +23,49 @@
         <img src="/icons/social-media/substack.svg" alt="" />
       </a>
     </div>
-    <div
-      class="text-sm opacity-50 flex align-middle items-center justify-center gap-2"
-    >
-      Join Our Community •
-      <a href="#" class="hover:opacity-80 w-6">
-        <img src="/icons/social-media/twitter.svg" alt="" />
-      </a>
-      <a href="#" class="hover:opacity-80 w-6">
-        <img src="/icons/social-media/github.svg" alt="" />
-      </a>
-      <a href="#" class="hover:opacity-80 w-6">
-        <img src="/icons/social-media/substack.svg" alt="" />
-      </a>
-      © 2024
-    </div>
   </div>
+
+  <!-- 固定的 Footer -->
+  <div
+    id="collapsed-footer"
+    class="fixed bottom-0 center left-1/2 -translate-x-1/2 w-fit p-4 rounded-t-2xl bg-black text-sm flex align-middle items-center justify-center gap-2 py-3 transition-all duration-300 ease-in-out"
+  >
+    Join Our Community •
+    <a href="#" class="hover:opacity-80 w-6">
+      <img src="/icons/social-media/twitter.svg" alt="" />
+    </a>
+    <a href="#" class="hover:opacity-80 w-6">
+      <img src="/icons/social-media/github.svg" alt="" />
+    </a>
+    <a href="#" class="hover:opacity-80 w-6">
+      <img src="/icons/social-media/substack.svg" alt="" />
+    </a>
+    © 2024
+  </div>
+
+  <script>
+    const expandedFooter = document.getElementById("expanded-footer");
+    const collapsedFooter = document.getElementById("collapsed-footer");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Footer 进入视口
+            collapsedFooter?.classList.add("hidden");
+            expandedFooter?.classList.add("block");
+          } else {
+            // Footer 离开视口
+            collapsedFooter?.classList.remove("hidden");
+            expandedFooter?.classList.remove("block");
+          }
+        });
+      },
+      {
+        threshold: 0, // 0 表示只要有一像素进入视口就触发
+      }
+    );
+
+    observer.observe(document.querySelector("footer")!); // 监听 footer 元素
+  </script>
 </footer>
