@@ -1,29 +1,10 @@
 ---
-
+import ExpandFooter from "./ExpandFooter.astro";
 ---
 
 <footer class="bg-black text-white py-12 rounded-t-xl relative">
   <!-- 展开的 Footer -->
-  <div
-    id="expanded-footer"
-    class="flex flex-col align-middle items-center gap-6 px-4 text-center justify-center transition-all duration-300 ease-in-out"
-  >
-    <div class="h-10">
-      <img src="/logo/white.svg" alt="" />
-    </div>
-    <h2>Join Our Community</h2>
-    <div class="flex justify-center gap-4 mb-6">
-      <a href="#" class="hover:opacity-80">
-        <img src="/icons/social-media/twitter.svg" alt="" />
-      </a>
-      <a href="#" class="hover:opacity-80">
-        <img src="/icons/social-media/github.svg" alt="" />
-      </a>
-      <a href="#" class="hover:opacity-80">
-        <img src="/icons/social-media/substack.svg" alt="" />
-      </a>
-    </div>
-  </div>
+  <ExpandFooter />
 
   <!-- 固定的 Footer -->
   <div

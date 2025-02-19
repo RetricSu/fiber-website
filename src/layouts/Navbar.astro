@@ -1,4 +1,6 @@
 ---
+import ExpandFooter from "./ExpandFooter.astro";
+
 const navLinks = [
 	{ text: "About", href: "/", id: "about" },
 	{ text: "Documentation", href: "#documentation", id: "documentation" },
@@ -112,12 +114,12 @@ const currentPath = Astro.url.pathname;
       <img src="/logo/white.svg" alt="Logo" class="h-10" />
     </a>
     <button id="close-mobile-menu" class="">
-      <img class="w-10" src="/icons/close.svg" alt="" />
+      <img class="w-10 cursor-pointer" src="/icons/close.svg" alt="" />
     </button>
   </div>
 
   <div class="h-full">
-    <ul class="text-left text-body1">
+    <ul class="text-left text-body1 mb-4">
       {
         navLinks.map((link) => (
           <li class=" text-white">
@@ -148,6 +150,10 @@ const currentPath = Astro.url.pathname;
         ))
       }
     </ul>
+
+    <div class="mt-20">
+      <ExpandFooter />
+    </div>
   </div>
 </div>
 
