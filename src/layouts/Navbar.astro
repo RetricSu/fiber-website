@@ -25,6 +25,8 @@ const documentMenu = [
 		href: "https://github.com/nerosnetwork/fiber/blob/main/docs/specs/payment-invoice.md",
 	},
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <nav class="bg-[#E6D3FF] flex items-center justify-between py-4 px-20">
@@ -33,12 +35,13 @@ const documentMenu = [
   </a>
   <ul class="flex space-x-4">
     {
-      navLinks.map((link) =>
-        link.id === "documentation" ? (
+      navLinks.map((link) => {
+        const isActive = currentPath === link.href;
+        return link.id === "documentation" ? (
           <li class="relative">
             <a
               href={link.href}
-              class={`nav-link px-4 py-2 rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-200 border-1 border-black`}
+              class={`nav-link px-4 py-2 rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-200 border-1 border-black ${isActive ? "selected" : ""}`}
               id={`nav-link-${link.id}`}
               data-link-id={link.id}
             >
@@ -79,15 +82,15 @@ const documentMenu = [
           <li>
             <a
               href={link.href}
-              class={`nav-link px-4 py-2 rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-200 border-1 border-black ${link.id === "about" ? "selected" : ""}`}
+              class={`nav-link px-4 py-2 rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-200 border-1 border-black ${isActive ? "selected" : ""}`}
               id={`nav-link-${link.id}`}
               data-link-id={link.id}
             >
               {link.text}
             </a>
           </li>
-        )
-      )
+        );
+      })
     }
   </ul>
 </nav>
